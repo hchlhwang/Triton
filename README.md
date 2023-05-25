@@ -9,15 +9,11 @@
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> :book: Table of Contents</h2>
 
-
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-triton"> ➤ About Triton</a></li>
     <li><a href="#prerequisites"> ➤ Prerequisites</a></li>
-    <!-- <li><a href="#folder-structure"> ➤ Folder Structure</a></li> -->
-    <!-- <li><a href="#dataset"> ➤ Dataset</a></li> -->
-    <!-- <li><a href="#roadmap"> ➤ Roadmap</a></li> -->
     <li>
       <a href="#setup"> ➤ Setup</a>
       <ul>
@@ -52,12 +48,7 @@
 <!-- PREREQUISITES -->
 <h2 id="prerequisites"> :fork_and_knife: Prerequisites</h2>
 
-<!-- Badges/shields -->
-<!-- [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
-[![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try) <br> -->
-
-<!--This project is written in Python programming language. <br>-->
-The following tool may be used for your project:
+The following tool will be used for your project:
 * Docker
 
   Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. Using Docker, you can quickly deploy and scale applications into any environment and know your code will run.
@@ -67,19 +58,14 @@ The following tool may be used for your project:
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-
 <!-- SETUP -->
 <h2 id="setup"> :hammer: Setup</h2>
 
 <p align="justify"> 
   The guide will help you to setup your hardware and software environment for further development in the Triton robot.
   
-  * To build your robot hardware, carefully follow the steps in the <b>Hardware Setup</b>.
-  * To familiarize yourself with docker and setup your docker environment, follow the steps in the <b>Software Setup</b>.
-  <!-- <ol>
-    <li><b>Hardware Setup</b> to assemble hardware of Triton</li> 
-    <li><b>Software Setup</b> using docker images and ROS packages</li>
-  </ol> -->
+  * <b>Hardware Setup</b>: carefully follow the steps to build your robot hardware. 
+  * <b>Software Setup</b>: familiarize yourself with docker and setup your docker environment.
   
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -103,7 +89,7 @@ The following tool may be used for your project:
 
 ### Assembly
 
-  1. We will first mount the RPLiDAR on top of the robot. You will need to loosen the six screws on top of the robot with a 1/16" hex key. Be careful not to lose the small spacers that are on top of the pillars on the side. Connect the LiDAR to the Jetson board through the USB converter. Refer to the image below:  
+  1. We will first mount the RPLiDAR on top of the robot. You will need to loosen the six screws on top of the robot with a 1/16" hex key. <b>Be careful not to lose the small spacers</b> that are on top of the pillars on the side. Connect the LiDAR to the Jetson board through the USB converter. Refer to the image below:  
   <p align="center">
     <img src="media/hw-lidar.png" alt="Table1: 18 Activities" width="70%" height="70%">        
   </p>
@@ -126,7 +112,7 @@ The following tool may be used for your project:
   We will type in commands in the Jetson Nano board to check if our assembly is done properly.
   1. Place your robot somewhere safe (e.g., on the ground).
 
-  2. Plug in a HDMI cable to a monitor, a keyboard, and a mouse to the Jetson. You will be able to see a screen with the Human-Centered Robotics Lab's logo. The password is *triton*.
+  2. Plug in a HDMI cable to a monitor, a keyboard, and a mouse to the Jetson. You will be able to see a screen with the Human-Centered Robotics Lab's logo. The password is <b>*triton*</b>.
 
   3. Open a terminal and run roscore:
   ``` bash
@@ -153,7 +139,7 @@ The following tool may be used for your project:
 <!-- SOFTWARE -->
 <h2 id="software"> :large_orange_diamond: Software Setup</h2>
 
-The base Jetson supports Ubuntu 18.04 and only has ROS Melodic. In order to run ROS Noetic on the Jetson board, you need to run the shared docker images. We will go through on how to setup the environment in this section.
+The base Jetson supports Ubuntu <b>18.04</b> and only has ROS <b>Melodic</b>. In order to run ROS Noetic on the Jetson board, you need to run the shared docker images. We will go through on how to setup the environment in this section.
 
 <p align="justify"> 
   
@@ -168,7 +154,7 @@ The base Jetson supports Ubuntu 18.04 and only has ROS Melodic. In order to run 
 ### ROS networking
   We can visualize the ROS networking as the diagram below. We assume that both the triton robot and your remote PC are connected to the same local network (via WiFi or ethernet) having the IP addresses: triton robot (<b>192.168.0.30</b>), remote PC (<b>192.168.0.45</b>). You need to modify the address settings depending on your actual IP addresses assigned on your network​.
   
-  To enable communication on ROS between the remote PC and the triton robot, it is important to set the *ROS_MASTER_URI* environment variable of the remote PC to the IP address of the triton robot and the ROS port 11311. ​The additional environment variable *ROS_IP* helps the triton robot and the remote PC to discover each other on the network. This can be set on both the remote PC and triton robot as shown in the diagram. On the remote PC, you can run `export ROS_IP=192.168.0.45` and `export ROS_MASTER_URI=http://192.168.0.30:11311` on bash (terminal). Add these commands to your `~/.bashrc` to automatically set this everytime you open your terminal. You can edit the *bashrc* by using the commands `vim ~/.bashrc` or `gedit ~/.bashrc`.
+  To enable communication on ROS between the remote PC and the triton robot, it is important to set the *ROS_MASTER_URI* environment variable of the remote PC to the IP address of the triton robot and the ROS port <b>11311</b>. ​The additional environment variable *ROS_IP* helps the triton robot and the remote PC to discover each other on the network. This can be set on both the remote PC and triton robot as shown in the diagram. On the remote PC, you can run `export ROS_IP=192.168.0.45` and `export ROS_MASTER_URI=http://192.168.0.30:11311` on bash (terminal). Add these commands to your `~/.bashrc` to automatically set this everytime you open your terminal. You can edit the *bashrc* by using the commands `vim ~/.bashrc` or `gedit ~/.bashrc`.
   
   <p align="center"> 
     <img src="media/sw-ros.png" alt="Sample signal" width="65%" height="65%">
@@ -214,7 +200,6 @@ The base Jetson supports Ubuntu 18.04 and only has ROS Melodic. In order to run 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-
 <!-- REFERENCES -->
 <h2 id="references"> :books: References</h2>
 
@@ -248,7 +233,6 @@ Related docker files and instruction materials can be found in the course [OneDr
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-
 <!-- ISSUES -->
 <h2 id="todo-list"> :scroll: TODO list</h2>
 
@@ -256,9 +240,5 @@ Related docker files and instruction materials can be found in the course [OneDr
 - [ ] Enable [Hector SLAM](https://umass-my.sharepoint.com/:b:/r/personal/hochulhwang_umass_edu/Documents/Triton/Software/Docker/Materials/Tips-Triton-SLAM.pdf?csf=1&web=1&e=fPxoOK).
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-<!-- CONTRIBUTORS -->
-<!-- <h2 id="contributors"> :scroll: Contributors</h2>
-<br> -->
 
 ✤ <i>This page supports the course <a href="https://hcr.cs.umass.edu/courses/compsci603/">COMPSCI 603 - Robotics</a>, at <a href="https://www.umass.edu/">University of Massachusetts Amherst</a><i>
